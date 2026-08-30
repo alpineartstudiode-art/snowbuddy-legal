@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnSolo - Analytics &amp; Diagnostics</title>
+    <style>
+        html { scroll-padding-top: 7.5rem; }
+        body { font-family: -apple-system, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; scroll-behavior: smooth; background-color: #f8fafc; }
+        nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); padding: 15px 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; z-index: 100; backdrop-filter: blur(5px); }
+        nav a { text-decoration: none; color: #2563eb; font-weight: 600; font-size: 13px; padding: 6px 12px; border: 1px solid #e2e8f0; border-radius: 20px; transition: all 0.2s; }
+        nav a:hover { background: #2563eb; color: white; border-color: #2563eb; }
+        section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 60px; }
+        h1 { color: #1e293b; font-size: 28px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; margin-bottom: 20px; }
+        section[id] { scroll-margin-top: 7.5rem; }
+        h2 { color: #334155; font-size: 20px; margin-top: 30px; margin-bottom: 15px; }
+        h3 { color: #475569; font-size: 17px; margin-top: 20px; margin-bottom: 10px; }
+        p { margin-bottom: 15px; }
+        ul { padding-left: 25px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        .email { color: #2563eb; font-weight: bold; }
+        footer { text-align: center; color: #94a3b8; font-size: 12px; margin-bottom: 40px; }
+        .bold { font-weight: bold; }
+        a { color: #2563eb; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#en">🇬🇧 English</a>
+        <a href="#de">🇩🇪 Deutsch</a>
+        <a href="#fr">🇫🇷 Français</a>
+        <a href="#it">🇮🇹 Italiano</a>
+        <a href="#es">🇪🇸 Español</a>
+        <a href="#ru">🇷🇺 Русский</a>
+        <a href="#uk">🇺🇦 Українська</a>
+    </nav>
+
+    <section id="en">
+        <h1>Analytics &amp; Diagnostics (English)</h1>
+        <p>This notice explains the optional in-app choice labelled <span class="bold">Share usage and diagnostics</span> in UnSolo. It covers product analytics (<span class="bold">Mixpanel</span>) and crash diagnostics (<span class="bold">Firebase Crashlytics</span>, Google). It does <span class="bold">not</span> replace our <a href="privacy.html">Privacy Policy</a> or <a href="terms.html">Terms of Service</a>. Accepting the Terms and acknowledging the Privacy Policy and Community Guidelines is <span class="bold">separate</span> from this optional choice.</p>
+
+        <h2>1. Optional joint choice</h2>
+        <p>UnSolo uses one optional control for both <span class="bold">Mixpanel</span> and <span class="bold">Firebase Crashlytics</span>. The control defaults to <span class="bold">OFF</span>. Turning it <span class="bold">ON</span> enables both services together. Turning it <span class="bold">OFF</span> stops future optional usage and diagnostic telemetry for both. This choice is separate from acknowledging the Terms, Privacy Policy, and Community Guidelines. It does <span class="bold">not</span> disable safety, moderation, reporting, authentication, or other processing needed to operate the service.</p>
+
+        <h2>2. What Mixpanel collects when ON</h2>
+        <p>When Share usage and diagnostics is ON, UnSolo may send product-analytics events to Mixpanel in these categories:</p>
+        <ul>
+            <li>Screens and navigation (screen views and tab selections)</li>
+            <li>Authentication funnel (start, complete, fail with classified outcomes)</li>
+            <li>Account linking and onboarding steps</li>
+            <li>Plans and discovery activity (for example activity counts, season or date windows, location mode, deck and match funnel) — without the exact Place ID</li>
+            <li>Chat metadata only (for example chat opened / message sent flags) — without message text</li>
+            <li>Reports: category and context only (report free text goes to the app backend, not Mixpanel)</li>
+            <li>Tips and monetization funnel, including the tip product SKU, tier, and store (iOS/Android)</li>
+            <li>Offers opt-in, share-app, and store-review prompts</li>
+            <li>On Android, campaign and referrer-derived attribution fields when available (for example source, medium, campaign, content, and related first-touch properties)</li>
+            <li>Common app context (for example app version, build, platform, UI language, device locale, auth type, guest flag, session id)</li>
+            <li>Approximate IP geolocation: the Mixpanel React Native SDK may send the client IP address so Mixpanel can derive an approximate <span class="bold">city, region, and country</span>. This is <span class="bold">not</span> precise or real-time GPS</li>
+        </ul>
+
+        <h2>3. Identifiers (pseudonymous — not anonymous)</h2>
+        <p>This optional analytics is <span class="bold">pseudonymous, not anonymous</span>.</p>
+        <ul>
+            <li><span class="bold">Linked accounts:</span> Mixpanel’s distinct ID is your Supabase authentication user ID (a pseudonymous account identifier that can be linked to your UnSolo account).</li>
+            <li><span class="bold">Guests:</span> Mixpanel uses the SDK’s own distinct ID (no account UID). That ID is still a pseudonymous technical identifier.</li>
+            <li><span class="bold">Session ID:</span> an opaque session identifier created by the app.</li>
+        </ul>
+
+        <h2>4. Mixpanel residency, transfers, and retention</h2>
+        <p>UnSolo’s Mixpanel project is configured for <span class="bold">EU data residency</span>. See Mixpanel’s EU residency information: <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. EU residency does <span class="bold">not</span> mean all processing is limited to the EU: Mixpanel and its subprocessors may process or transfer data outside the EEA under Mixpanel’s data processing agreement and applicable safeguards. See also <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> and <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo retains Mixpanel analytics only for as long as needed for the stated analytics purposes and while the Mixpanel service or subscription remains active, subject to applicable account and vendor retention rules. The product owner may request earlier deletion for a data-subject request. Under Mixpanel’s current DPA, data is deleted upon the customer’s deletion request or within 90 days after termination or expiration of the agreement, unless applicable law requires retention. Withdrawal of the optional choice alone does <span class="bold">not</span> automatically delete historical Mixpanel data. For access or deletion requests relating to this processing, contact the product owner using the details below.</p>
+
+        <h2>5. What Crashlytics collects</h2>
+        <p>UnSolo enables Crashlytics collection and upload only while Share usage and diagnostics is <span class="bold">ON</span> and the consent lifecycle successfully enables it. While collection is OFF, the SDK may still create or hold crash information locally on the device. The first time you enable the choice, UnSolo is designed to delete unsent pre-consent reports before enabling collection, and not to upload that pre-consent queue.</p>
+        <p>When enabled, Crashlytics may receive crash logs, stack traces, minidump data, app and device state, and vendor install identifiers. UnSolo does <span class="bold">not</span> call Crashlytics setUserId and does <span class="bold">not</span> attach app account identity attributes. In production, handled diagnostics sent by the app use <span class="bold">fixed diagnostic event names only</span> (no raw error objects or custom user metadata).</p>
+        <p>Firebase Crashlytics retains uploaded crash stack traces, extracted minidump data, and associated identifiers for <span class="bold">90 days</span> before beginning removal from live and backup systems. Processing uses global Firebase / Google facilities. See <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. Withdrawing the optional choice stops future optional telemetry but does <span class="bold">not</span> automatically erase reports already uploaded.</p>
+
+        <h2>6. What is not sent to Mixpanel</h2>
+        <p>UnSolo does <span class="bold">not</span> send the following to Mixpanel: message text; chat ids; email addresses; precise GPS coordinates; the exact Place ID; profile name, bio, or avatar URL; report free text; payment card data or purchase receipts / transaction ids; OAuth tokens; push tokens; or advertising identifiers (GAID/IDFA).</p>
+        <p>Exact Place IDs and other profile data may still be stored in the UnSolo product / backend for matching and maps — that is separate from Mixpanel.</p>
+
+        <h2>7. How to change or withdraw</h2>
+        <p>Change or withdraw the choice in the Application under <span class="bold">Settings → Analytics &amp; diagnostics</span>. Saving <span class="bold">OFF</span> records your choice and closes the optional telemetry gate immediately. On Android, closing and reopening UnSolo may be needed for the native Crashlytics disable to finish applying. You may see buttons labelled <span class="bold">Close now</span> (closes the app) or <span class="bold">Later</span> (dismisses the prompt; your choice remains OFF). Historical data already held by Mixpanel or Crashlytics is <span class="bold">not</span> automatically erased by withdrawal — contact us for data-subject requests.</p>
+
+        <h2>8. Local choice record</h2>
+        <p>UnSolo stores this choice record <span class="bold">only locally on your device</span>. It is used to remember and apply your choice. It includes the choice, notice version, decision time, app build, and source. It is <span class="bold">not</span> sent to Mixpanel and is <span class="bold">not</span> uploaded or stored as an account or profile analytics field. It may be lost after uninstall, clear app data, invalidation, or replacement.</p>
+
+        <h2>9. Contact and data-subject requests</h2>
+        <p>For questions or requests relating to this optional processing (including access or erasure), contact:</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        Email: <span class="email">unsolo.box@gmail.com</span></p>
+        <p>Also see our <a href="privacy.html">Privacy Policy</a>.</p>
+        <p><span class="bold">Last updated: 2026-08-30</span></p>
+    </section>
+
+    <section id="de">
+        <h1>Analysen &amp; Diagnosen (Deutsch)</h1>
+        <p>Dieser Hinweis erläutert die optionale In-App-Wahl <span class="bold">Nutzungs- und Diagnosedaten teilen</span> (Share usage and diagnostics) in UnSolo. Er betrifft Produktanalysen (<span class="bold">Mixpanel</span>) und Absturzdiagnosen (<span class="bold">Firebase Crashlytics</span>, Google). Er ersetzt nicht unsere <a href="privacy.html">Datenschutzerklärung</a> oder <a href="terms.html">Nutzungsbedingungen</a>. Die Annahme der Nutzungsbedingungen sowie die Kenntnisnahme von Datenschutzerklärung und Community-Richtlinien sind von dieser optionalen Wahl <span class="bold">getrennt</span>.</p>
+
+        <h2>1. Optionale gemeinsame Wahl</h2>
+        <p>UnSolo verwendet eine einzige optionale Steuerung für <span class="bold">Mixpanel</span> und <span class="bold">Firebase Crashlytics</span>. Standardmäßig ist sie <span class="bold">AUS</span>. <span class="bold">EIN</span> aktiviert beide Dienste gemeinsam. <span class="bold">AUS</span> beendet die künftige optionale Nutzungs- und Diagnose-Telemetrie für beide. Diese Wahl ist getrennt von der Kenntnisnahme der Nutzungsbedingungen, Datenschutzerklärung und Community-Richtlinien. Sicherheit, Moderierung, Meldungen, Authentifizierung und sonstiger Betrieb werden dadurch <span class="bold">nicht</span> abgeschaltet.</p>
+
+        <h2>2. Was Mixpanel bei EIN erfasst</h2>
+        <p>Wenn „Nutzungs- und Diagnosedaten teilen“ EIN ist, kann UnSolo Produktanalyse-Ereignisse an Mixpanel in diesen Kategorien senden:</p>
+        <ul>
+            <li>Bildschirme und Navigation (Bildschirmansichten und Tab-Auswahl)</li>
+            <li>Authentifizierungs-Funnel (Start, Abschluss, Fehler mit klassifizierten Ergebnissen)</li>
+            <li>Kontoverknüpfung und Onboarding-Schritte</li>
+            <li>Pläne und Discovery (z. B. Aktivitätszähler, Saison-/Datumsfenster, Standortmodus, Deck- und Match-Funnel) — ohne die exakte Place ID</li>
+            <li>Nur Chat-Metadaten (z. B. Chat geöffnet / Nachricht gesendet) — ohne Nachrichtentext</li>
+            <li>Meldungen: nur Kategorie und Kontext (Melde-Freitext geht an das App-Backend, nicht an Mixpanel)</li>
+            <li>Trinkgeld- und Monetarisierungs-Funnel inkl. Tip-Produkt-SKU, Stufe und Store (iOS/Android)</li>
+            <li>Angebote-Opt-in, App-Teilen und Store-Bewertungs-Prompts</li>
+            <li>Unter Android Kampagnen- und Referrer-Felder, soweit verfügbar (z. B. source, medium, campaign, content und zugehörige First-Touch-Eigenschaften)</li>
+            <li>Gemeinsamer App-Kontext (z. B. App-Version, Build, Plattform, UI-Sprache, Gerätelocale, Auth-Typ, Gast-Flag, Sitzungs-ID)</li>
+            <li>Ungefähre IP-Geolokalisierung: das Mixpanel React-Native-SDK kann die Client-IP senden, damit Mixpanel ungefähre <span class="bold">Stadt, Region und Land</span> ableiten kann. Das ist <span class="bold">kein</span> präzises oder Echtzeit-GPS</li>
+        </ul>
+
+        <h2>3. Kennungen (pseudonym — nicht anonym)</h2>
+        <p>Diese optionale Analyse ist <span class="bold">pseudonym, nicht anonym</span>.</p>
+        <ul>
+            <li><span class="bold">Verknüpfte Konten:</span> Mixpanel-Distinct-ID = Ihre Supabase-Authentifizierungs-User-ID (pseudonyme Kontokennung, die mit Ihrem UnSolo-Konto verknüpft werden kann).</li>
+            <li><span class="bold">Gäste:</span> SDK-eigene Distinct-ID (kein Konto-UID). Weiterhin eine pseudonyme technische Kennung.</li>
+            <li><span class="bold">Sitzungs-ID:</span> opake Sitzungskennung der App.</li>
+        </ul>
+
+        <h2>4. Mixpanel-Residenz, Transfers und Aufbewahrung</h2>
+        <p>Das Mixpanel-Projekt von UnSolo ist für <span class="bold">EU-Datenresidenz</span> konfiguriert. Siehe: <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. EU-Residenz bedeutet <span class="bold">nicht</span>, dass die gesamte Verarbeitung auf die EU beschränkt ist: Mixpanel und Unterauftragsverarbeiter können Daten außerhalb des EWR unter Mixpanels Auftragsverarbeitungsvertrag und geltenden Garantien verarbeiten oder übermitteln. Siehe auch <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> und <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo behält Mixpanel-Analysen nur so lange, wie es für die genannten Analysezwecke erforderlich ist und der Mixpanel-Dienst bzw. das Abonnement aktiv bleibt, vorbehaltlich geltender Konto- und Anbieter-Aufbewahrungsregeln. Der Produkteigentümer kann bei einer Betroffenenanfrage eine frühere Löschung verlangen. Nach dem aktuellen DPA von Mixpanel werden Daten auf Löschungsanfrage des Kunden gelöscht oder innerhalb von 90 Tagen nach Beendigung oder Ablauf der Vereinbarung, sofern geltendes Recht keine Aufbewahrung verlangt. Der Widerruf der optionalen Wahl allein löscht historische Mixpanel-Daten <span class="bold">nicht</span> automatisch. Für Auskunfts- oder Löschungsanfragen zu dieser Verarbeitung wenden Sie sich an den Produkteigentümer unter den unten genannten Kontaktdaten.</p>
+
+        <h2>5. Was Crashlytics erfasst</h2>
+        <p>UnSolo aktiviert die Erfassung und den Upload durch Crashlytics nur, solange „Nutzungs- und Diagnosedaten teilen“ <span class="bold">EIN</span> ist und der Einwilligungs-Lifecycle dies erfolgreich freischaltet. Bei ausgeschalteter Erfassung kann das SDK Absturzinformationen weiterhin lokal auf dem Gerät erstellen oder halten. Beim ersten Aktivieren ist UnSolo so ausgelegt, dass ungesendete Pre-Consent-Berichte gelöscht werden, bevor die Erfassung freigeschaltet wird, und dass diese Warteschlange nicht hochgeladen wird.</p>
+        <p>Bei Aktivierung kann Crashlytics Absturzlogs, Stacktraces, Minidump-Daten, App- und Gerätezustand sowie herstellerseitige Install-IDs erhalten. UnSolo ruft Crashlytics <span class="bold">setUserId</span> <span class="bold">nicht</span> auf und hängt <span class="bold">keine</span> App-Konto-Identitätsattribute an. In der Produktion nutzen von der App gesendete Handled-Diagnosen <span class="bold">nur feste Diagnose-Ereignisnamen</span> (keine Roh-Fehlerobjekte oder benutzerdefinierten Nutzermetadaten).</p>
+        <p>Firebase Crashlytics bewahrt hochgeladene Absturz-Stacktraces, extrahierte Minidump-Daten und zugehörige Kennungen <span class="bold">90 Tage</span> auf, bevor die Entfernung aus Live- und Backup-Systemen beginnt. Die Verarbeitung erfolgt über globale Firebase-/Google-Infrastruktur. Siehe <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. Der Widerruf der optionalen Wahl stoppt künftige optionale Telemetrie, löscht bereits hochgeladene Berichte aber <span class="bold">nicht automatisch</span>.</p>
+
+        <h2>6. Was nicht an Mixpanel gesendet wird</h2>
+        <p>UnSolo sendet u. a. <span class="bold">nicht</span> an Mixpanel: Nachrichtentext; Chat-IDs; E-Mail-Adressen; präzise GPS-Koordinaten; die exakte Place ID; Profilname, Bio oder Avatar-URL; Melde-Freitext; Zahlungskartendaten oder Belege / Transaktions-IDs; OAuth-Token; Push-Token; Werbe-IDs (GAID/IDFA).</p>
+        <p>Exakte Place IDs und andere Profildaten können weiterhin im UnSolo-Produkt / Backend für Matching und Karten gespeichert werden — getrennt von Mixpanel.</p>
+
+        <h2>7. Ändern oder widerrufen</h2>
+        <p>Ändern oder widerrufen Sie die Wahl in der Anwendung unter <span class="bold">Einstellungen → Analysen &amp; Diagnosen</span>. Speichern von <span class="bold">AUS</span> hält Ihre Wahl fest und schließt die optionale Telemetrie-Gate sofort. Unter Android kann ein Schließen und erneutes Öffnen von UnSolo nötig sein, damit die native Deaktivierung von Crashlytics greift. Es können Schaltflächen <span class="bold">Jetzt schließen</span> (schließt die App) oder <span class="bold">Später</span> (schließt den Hinweis; die Wahl bleibt AUS) erscheinen. Historische Daten bei Mixpanel oder Crashlytics werden durch den Widerruf <span class="bold">nicht automatisch</span> gelöscht — kontaktieren Sie uns für Betroffenenanfragen.</p>
+
+        <h2>8. Lokaler Wahl-Datensatz</h2>
+        <p>UnSolo speichert diesen Wahl-Datensatz <span class="bold">nur lokal auf Ihrem Gerät</span>. Er dient dazu, Ihre Wahl zu merken und anzuwenden. Er enthält die Wahl, Hinweisversion, Entscheidungszeit, App-Build und Quelle. Er wird <span class="bold">nicht</span> an Mixpanel gesendet und <span class="bold">nicht</span> als Konto- oder Profil-Analysefeld hochgeladen oder gespeichert. Er kann nach Deinstallation, Löschen der App-Daten, Ungültigmachen oder Ersetzen verloren gehen.</p>
+
+        <h2>9. Kontakt und Betroffenenrechte</h2>
+        <p>Fragen oder Anfragen zu dieser optionalen Verarbeitung (einschließlich Auskunft oder Löschung):</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        E-Mail: <span class="email">unsolo.box@gmail.com</span></p>
+        <p>Siehe auch unsere <a href="privacy.html">Datenschutzerklärung</a>.</p>
+        <p><span class="bold">Zuletzt aktualisiert: 30.08.2026</span></p>
+    </section>
+
+    <section id="fr">
+        <h1>Analyses &amp; Diagnostics (Français)</h1>
+        <p>Cet avis explique le choix optionnel in-app <span class="bold">Share usage and diagnostics</span> dans UnSolo. Il couvre l’analyse produit (<span class="bold">Mixpanel</span>) et les diagnostics de plantage (<span class="bold">Firebase Crashlytics</span>, Google). Il ne remplace pas notre <a href="privacy.html">Politique de confidentialité</a> ni nos <a href="terms.html">Conditions d’utilisation</a>. L’acceptation des Conditions et la prise de connaissance de la Politique de confidentialité et des Community Guidelines sont <span class="bold">distinctes</span> de ce choix optionnel.</p>
+
+        <h2>1. Choix optionnel conjoint</h2>
+        <p>UnSolo utilise un seul contrôle optionnel pour <span class="bold">Mixpanel</span> et <span class="bold">Firebase Crashlytics</span>. Il est <span class="bold">OFF</span> par défaut. L’activer (<span class="bold">ON</span>) active les deux services ensemble. Le désactiver (<span class="bold">OFF</span>) arrête la télémétrie optionnelle future pour les deux. Ce choix est distinct de la prise de connaissance des Conditions, de la Politique de confidentialité et des Community Guidelines. Il ne désactive <span class="bold">pas</span> la sécurité, la modération, les signalements, l’authentification ni le reste du fonctionnement nécessaire.</p>
+
+        <h2>2. Ce que Mixpanel collecte lorsque ON</h2>
+        <p>Lorsque Share usage and diagnostics est ON, UnSolo peut envoyer à Mixpanel des événements d’analyse produit dans ces catégories :</p>
+        <ul>
+            <li>Écrans et navigation (vues d’écran et onglets)</li>
+            <li>Tunnel d’authentification (démarrage, succès, échec avec résultats classifiés)</li>
+            <li>Liaison de compte et étapes d’onboarding</li>
+            <li>Plans et découverte (par ex. compteurs d’activités, fenêtres de saison/dates, mode de lieu, tunnel deck/match) — sans l’identifiant Place exact</li>
+            <li>Métadonnées de chat uniquement (par ex. chat ouvert / message envoyé) — sans texte des messages</li>
+            <li>Signalements : catégorie et contexte uniquement (le texte libre va au backend de l’app, pas à Mixpanel)</li>
+            <li>Tunnel pourboires / monétisation, y compris le SKU du produit tip, le niveau et le store (iOS/Android)</li>
+            <li>Opt-in Offres, partage d’app et invites d’avis store</li>
+            <li>Sous Android, champs campagne / referrer lorsqu’ils sont disponibles (par ex. source, medium, campaign, content et propriétés first-touch associées)</li>
+            <li>Contexte applicatif commun (par ex. version, build, plateforme, langue UI, locale appareil, type d’auth, indicateur invité, id de session)</li>
+            <li>Géolocalisation IP approximative : le SDK Mixpanel React Native peut envoyer l’IP client pour en déduire une <span class="bold">ville, région et pays</span> approximatifs. Ce n’est <span class="bold">pas</span> un GPS précis ou en temps réel</li>
+        </ul>
+
+        <h2>3. Identifiants (pseudonymes — pas anonymes)</h2>
+        <p>Cette analyse optionnelle est <span class="bold">pseudonyme, pas anonyme</span>.</p>
+        <ul>
+            <li><span class="bold">Comptes liés :</span> l’identifiant distinct Mixpanel est votre ID utilisateur d’authentification Supabase (identifiant de compte pseudonyme pouvant être lié à votre compte UnSolo).</li>
+            <li><span class="bold">Invités :</span> identifiant distinct propre au SDK (pas d’UID de compte). Toujours un identifiant technique pseudonyme.</li>
+            <li><span class="bold">ID de session :</span> identifiant de session opaque créé par l’app.</li>
+        </ul>
+
+        <h2>4. Résidence Mixpanel, transferts et conservation</h2>
+        <p>Le projet Mixpanel d’UnSolo est configuré pour une <span class="bold">résidence des données dans l’UE</span>. Voir : <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. La résidence UE ne signifie <span class="bold">pas</span> que tout traitement est limité à l’UE : Mixpanel et ses sous-traitants peuvent traiter ou transférer des données hors EEE selon l’accord de traitement de Mixpanel et les garanties applicables. Voir aussi <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> et <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo conserve les analyses Mixpanel uniquement aussi longtemps que nécessaire aux finalités d’analyse indiquées et tant que le service ou l’abonnement Mixpanel reste actif, sous réserve des règles de conservation applicables au compte et au fournisseur. Le responsable du produit peut demander une suppression anticipée pour une demande de personne concernée. Selon le DPA actuel de Mixpanel, les données sont supprimées sur demande de suppression du client ou dans les 90 jours suivant la résiliation ou l’expiration de l’accord, sauf si la loi applicable impose une conservation. Le seul retrait du choix optionnel ne supprime <span class="bold">pas</span> automatiquement les données Mixpanel historiques. Pour les demandes d’accès ou de suppression relatives à ce traitement, contactez le responsable du produit aux coordonnées ci-dessous.</p>
+
+        <h2>5. Ce que Crashlytics collecte</h2>
+        <p>UnSolo active la collecte et le téléversement Crashlytics uniquement lorsque Share usage and diagnostics est <span class="bold">ON</span> et que le cycle de consentement l’active avec succès. Lorsque la collecte est désactivée, le SDK peut encore créer ou conserver des informations de plantage localement sur l’appareil. Lors de la première activation, UnSolo est conçu pour supprimer les rapports pré-consentement non envoyés avant d’activer la collecte, et pour ne pas téléverser cette file d’attente.</p>
+        <p>Lorsqu’il est activé, Crashlytics peut recevoir journaux de plantage, traces de pile, données minidump, état app/appareil et identifiants d’installation du fournisseur. UnSolo n’appelle <span class="bold">pas</span> Crashlytics setUserId et n’attache <span class="bold">pas</span> d’attributs d’identité de compte. En production, les diagnostics gérés envoyés par l’app utilisent <span class="bold">uniquement des noms d’événements diagnostiques fixes</span> (pas d’objets d’erreur bruts ni de métadonnées utilisateur personnalisées).</p>
+        <p>Firebase Crashlytics conserve les traces de pile de plantage téléversées, les données minidump extraites et les identifiants associés pendant <span class="bold">90 jours</span> avant de commencer le retrait des systèmes live et de sauvegarde. Le traitement utilise les infrastructures mondiales Firebase / Google. Voir <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. Le retrait du choix optionnel arrête la télémétrie optionnelle future mais <span class="bold">n’efface pas automatiquement</span> les rapports déjà téléversés.</p>
+
+        <h2>6. Ce qui n’est pas envoyé à Mixpanel</h2>
+        <p>UnSolo n’envoie <span class="bold">pas</span> à Mixpanel : texte des messages ; ids de chat ; adresses e-mail ; coordonnées GPS précises ; l’identifiant Place exact ; nom, bio ou URL d’avatar ; texte libre des signalements ; données de carte de paiement ou reçus / ids de transaction ; jetons OAuth ; jetons push ; identifiants publicitaires (GAID/IDFA).</p>
+        <p>Les Place ID exacts et d’autres données de profil peuvent rester stockés dans le produit / backend UnSolo pour le matching et les cartes — séparément de Mixpanel.</p>
+
+        <h2>7. Comment modifier ou retirer</h2>
+        <p>Modifiez ou retirez le choix dans l’Application sous <span class="bold">Réglages → Analyses &amp; diagnostics</span>. Enregistrer <span class="bold">OFF</span> enregistre votre choix et ferme immédiatement la porte de télémétrie optionnelle. Sous Android, fermer puis rouvrir UnSolo peut être nécessaire pour que la désactivation native de Crashlytics s’applique. Des boutons <span class="bold">Fermer maintenant</span> (ferme l’app) ou <span class="bold">Plus tard</span> (ferme l’invite ; le choix reste OFF) peuvent s’afficher. Les données historiques déjà détenues par Mixpanel ou Crashlytics ne sont <span class="bold">pas</span> effacées automatiquement par le retrait — contactez-nous pour les demandes des personnes concernées.</p>
+
+        <h2>8. Enregistrement local du choix</h2>
+        <p>UnSolo stocke cet enregistrement de choix <span class="bold">uniquement localement sur votre appareil</span>. Il sert à mémoriser et appliquer votre choix. Il inclut le choix, la version de l’avis, l’heure de décision, le build de l’app et la source. Il n’est <span class="bold">pas</span> envoyé à Mixpanel et n’est <span class="bold">pas</span> téléversé ni stocké comme champ d’analyse de compte ou de profil. Il peut être perdu après désinstallation, effacement des données de l’app, invalidation ou remplacement.</p>
+
+        <h2>9. Contact et demandes des personnes concernées</h2>
+        <p>Pour toute question ou demande relative à ce traitement optionnel (accès ou effacement) :</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        E-mail : <span class="email">unsolo.box@gmail.com</span></p>
+        <p>Voir aussi notre <a href="privacy.html">Politique de confidentialité</a>.</p>
+        <p><span class="bold">Dernière mise à jour : 2026-08-30</span></p>
+    </section>
+
+    <section id="it">
+        <h1>Analisi &amp; Diagnostica (Italiano)</h1>
+        <p>Questo avviso spiega la scelta opzionale in-app <span class="bold">Share usage and diagnostics</span> in UnSolo. Copre analytics di prodotto (<span class="bold">Mixpanel</span>) e diagnostica crash (<span class="bold">Firebase Crashlytics</span>, Google). Non sostituisce la nostra <a href="privacy.html">Informativa sulla privacy</a> né i <a href="terms.html">Termini di servizio</a>. L’accettazione dei Termini e la presa visione dell’Informativa e delle Community Guidelines sono <span class="bold">separate</span> da questa scelta opzionale.</p>
+
+        <h2>1. Scelta opzionale congiunta</h2>
+        <p>UnSolo usa un unico controllo opzionale per <span class="bold">Mixpanel</span> e <span class="bold">Firebase Crashlytics</span>. È <span class="bold">OFF</span> di default. Attivarlo (<span class="bold">ON</span>) abilita entrambi i servizi insieme. Disattivarlo (<span class="bold">OFF</span>) interrompe la telemetria opzionale futura per entrambi. Questa scelta è distinta dalla presa visione di Termini, Informativa e Community Guidelines. Non disabilita sicurezza, moderazione, segnalazioni, autenticazione o altro funzionamento necessario.</p>
+
+        <h2>2. Cosa raccoglie Mixpanel quando è ON</h2>
+        <p>Quando Share usage and diagnostics è ON, UnSolo può inviare a Mixpanel eventi di analytics di prodotto in queste categorie:</p>
+        <ul>
+            <li>Schermate e navigazione (visualizzazioni e selezione schede)</li>
+            <li>Funnel di autenticazione (avvio, completamento, esito con risultati classificati)</li>
+            <li>Collegamento account e passaggi di onboarding</li>
+            <li>Piani e discovery (ad es. conteggi attività, finestre stagione/date, modalità luogo, funnel deck/match) — senza l’exact Place ID</li>
+            <li>Solo metadati chat (ad es. chat aperta / messaggio inviato) — senza testo dei messaggi</li>
+            <li>Segnalazioni: solo categoria e contesto (il testo libero va al backend dell’app, non a Mixpanel)</li>
+            <li>Funnel mance / monetizzazione, incluso lo SKU del prodotto tip, livello e store (iOS/Android)</li>
+            <li>Opt-in Offerte, condivisione app e prompt di recensione store</li>
+            <li>Su Android, campi campagna / referrer quando disponibili (ad es. source, medium, campaign, content e proprietà first-touch correlate)</li>
+            <li>Contesto app comune (ad es. versione, build, piattaforma, lingua UI, locale dispositivo, tipo auth, flag ospite, id sessione)</li>
+            <li>Geolocalizzazione IP approssimativa: l’SDK Mixpanel React Native può inviare l’IP del client affinché Mixpanel ricavi <span class="bold">città, regione e paese</span> approssimativi. Non è GPS preciso o in tempo reale</li>
+        </ul>
+
+        <h2>3. Identificatori (pseudonimi — non anonimi)</h2>
+        <p>Questa analytics opzionale è <span class="bold">pseudonima, non anonima</span>.</p>
+        <ul>
+            <li><span class="bold">Account collegati:</span> distinct ID Mixpanel = ID utente di autenticazione Supabase (identificatore di account pseudonimo collegabile al tuo account UnSolo).</li>
+            <li><span class="bold">Ospiti:</span> distinct ID proprio dell’SDK (nessun UID account). Resta un identificatore tecnico pseudonimo.</li>
+            <li><span class="bold">ID sessione:</span> identificatore di sessione opaco creato dall’app.</li>
+        </ul>
+
+        <h2>4. Residenza Mixpanel, trasferimenti e conservazione</h2>
+        <p>Il progetto Mixpanel di UnSolo è configurato per la <span class="bold">residenza dei dati nell’UE</span>. Vedi: <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. La residenza UE <span class="bold">non</span> significa che tutto il trattamento sia limitato all’UE: Mixpanel e i suoi sub-responsabili possono trattare o trasferire dati fuori dallo SEE secondo il DPA di Mixpanel e le garanzie applicabili. Vedi anche <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> e <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo conserva le analytics Mixpanel solo per il tempo necessario alle finalità di analytics indicate e finché il servizio o l’abbonamento Mixpanel resta attivo, fatte salve le regole di conservazione applicabili dell’account e del fornitore. Il titolare del prodotto può richiedere una cancellazione anticipata per una richiesta dell’interessato. Secondo l’attuale DPA di Mixpanel, i dati sono cancellati su richiesta di cancellazione del cliente oppure entro 90 giorni dalla cessazione o scadenza dell’accordo, salvo che la legge applicabile imponga la conservazione. La sola revoca della scelta opzionale <span class="bold">non</span> cancella automaticamente i dati Mixpanel storici. Per richieste di accesso o cancellazione relative a questo trattamento, contatta il titolare del prodotto ai recapiti sotto.</p>
+
+        <h2>5. Cosa raccoglie Crashlytics</h2>
+        <p>UnSolo abilita la raccolta e il caricamento di Crashlytics solo mentre Share usage and diagnostics è <span class="bold">ON</span> e il ciclo di consenso lo abilita con successo. Con la raccolta disattivata, l’SDK può comunque creare o trattenere informazioni di crash localmente sul dispositivo. Alla prima attivazione, UnSolo è progettato per eliminare i report pre-consenso non inviati prima di abilitare la raccolta, e per non caricare quella coda.</p>
+        <p>Quando è abilitato, Crashlytics può ricevere log di crash, stack trace, dati minidump, stato app/dispositivo e identificatori di installazione del fornitore. UnSolo <span class="bold">non</span> chiama Crashlytics setUserId e <span class="bold">non</span> allega attributi di identità dell’account. In produzione, le diagnostiche gestite inviate dall’app usano <span class="bold">solo nomi di eventi diagnostici fissi</span> (nessun oggetto errore grezzo né metadati utente personalizzati).</p>
+        <p>Firebase Crashlytics conserva le stack trace di crash caricate, i dati minidump estratti e gli identificatori associati per <span class="bold">90 giorni</span> prima di iniziare la rimozione dai sistemi live e di backup. Il trattamento usa strutture globali Firebase / Google. Vedi <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. La revoca della scelta opzionale interrompe la telemetria opzionale futura ma <span class="bold">non cancella automaticamente</span> i report già caricati.</p>
+
+        <h2>6. Cosa non viene inviato a Mixpanel</h2>
+        <p>UnSolo <span class="bold">non</span> invia a Mixpanel: testo dei messaggi; id chat; indirizzi e-mail; coordinate GPS precise; l’exact Place ID; nome, bio o URL avatar; testo libero delle segnalazioni; dati carta di pagamento o ricevute / id transazione; token OAuth; token push; identificatori pubblicitari (GAID/IDFA).</p>
+        <p>Gli exact Place ID e altri dati di profilo possono restare nel prodotto / backend UnSolo per matching e mappe — separati da Mixpanel.</p>
+
+        <h2>7. Come modificare o revocare</h2>
+        <p>Modifica o revoca la scelta nell’Applicazione in <span class="bold">Impostazioni → Analisi &amp; diagnostica</span>. Salvare <span class="bold">OFF</span> registra la scelta e chiude immediatamente il cancello della telemetria opzionale. Su Android può essere necessario chiudere e riaprire UnSolo perché la disattivazione nativa di Crashlytics sia completa. Possono comparire i pulsanti <span class="bold">Chiudi ora</span> (chiude l’app) o <span class="bold">Più tardi</span> (chiude il prompt; la scelta resta OFF). I dati storici già detenuti da Mixpanel o Crashlytics <span class="bold">non</span> vengono cancellati automaticamente dalla revoca — contattaci per le richieste dell’interessato.</p>
+
+        <h2>8. Record locale della scelta</h2>
+        <p>UnSolo memorizza questo record di scelta <span class="bold">solo localmente sul dispositivo</span>. Serve a ricordare e applicare la tua scelta. Include la scelta, la versione dell’avviso, l’orario della decisione, il build dell’app e l’origine. <span class="bold">Non</span> viene inviato a Mixpanel e <span class="bold">non</span> viene caricato né memorizzato come campo di analytics di account o profilo. Può andare perso dopo disinstallazione, cancellazione dati app, invalidazione o sostituzione.</p>
+
+        <h2>9. Contatti e richieste dell’interessato</h2>
+        <p>Per domande o richieste relative a questo trattamento opzionale (accesso o cancellazione):</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        Email: <span class="email">unsolo.box@gmail.com</span></p>
+        <p>Vedi anche la nostra <a href="privacy.html">Informativa sulla privacy</a>.</p>
+        <p><span class="bold">Ultimo aggiornamento: 2026-08-30</span></p>
+    </section>
+
+    <section id="es">
+        <h1>Analítica y diagnósticos (Español)</h1>
+        <p>Este aviso explica la opción in-app opcional <span class="bold">Share usage and diagnostics</span> en UnSolo. Cubre analítica de producto (<span class="bold">Mixpanel</span>) y diagnósticos de fallos (<span class="bold">Firebase Crashlytics</span>, Google). No sustituye nuestra <a href="privacy.html">Política de privacidad</a> ni los <a href="terms.html">Términos de servicio</a>. Aceptar los Términos y reconocer la Política de privacidad y las Community Guidelines es <span class="bold">independiente</span> de esta opción.</p>
+
+        <h2>1. Opción conjunta opcional</h2>
+        <p>UnSolo usa un único control opcional para <span class="bold">Mixpanel</span> y <span class="bold">Firebase Crashlytics</span>. Está <span class="bold">OFF</span> por defecto. Activarlo (<span class="bold">ON</span>) habilita ambos servicios juntos. Desactivarlo (<span class="bold">OFF</span>) detiene la telemetría opcional futura de ambos. Esta opción es independiente del reconocimiento de Términos, Política de privacidad y Community Guidelines. No desactiva seguridad, moderación, denuncias, autenticación u otro funcionamiento necesario.</p>
+
+        <h2>2. Qué recopila Mixpanel cuando está ON</h2>
+        <p>Cuando Share usage and diagnostics está ON, UnSolo puede enviar a Mixpanel eventos de analítica de producto en estas categorías:</p>
+        <ul>
+            <li>Pantallas y navegación (vistas de pantalla y pestañas)</li>
+            <li>Embudo de autenticación (inicio, completado, fallo con resultados clasificados)</li>
+            <li>Vinculación de cuenta y pasos de onboarding</li>
+            <li>Planes y discovery (p. ej. conteos de actividad, ventanas de temporada/fechas, modo de ubicación, embudo deck/match) — sin el Place ID exacto</li>
+            <li>Solo metadatos de chat (p. ej. chat abierto / mensaje enviado) — sin texto de mensajes</li>
+            <li>Denuncias: solo categoría y contexto (el texto libre va al backend de la app, no a Mixpanel)</li>
+            <li>Embudo de propinas / monetización, incluido el SKU del producto tip, nivel y tienda (iOS/Android)</li>
+            <li>Opt-in de Ofertas, compartir app e invitaciones de reseña en la tienda</li>
+            <li>En Android, campos de campaña / referrer cuando estén disponibles (p. ej. source, medium, campaign, content y propiedades first-touch relacionadas)</li>
+            <li>Contexto común de la app (p. ej. versión, build, plataforma, idioma UI, locale del dispositivo, tipo de auth, indicador de invitado, id de sesión)</li>
+            <li>Geolocalización IP aproximada: el SDK Mixpanel React Native puede enviar la IP del cliente para que Mixpanel derive <span class="bold">ciudad, región y país</span> aproximados. No es GPS preciso ni en tiempo real</li>
+        </ul>
+
+        <h2>3. Identificadores (seudónimos — no anónimos)</h2>
+        <p>Esta analítica opcional es <span class="bold">seudónima, no anónima</span>.</p>
+        <ul>
+            <li><span class="bold">Cuentas vinculadas:</span> el distinct ID de Mixpanel es su ID de usuario de autenticación de Supabase (identificador de cuenta seudónimo vinculable a su cuenta UnSolo).</li>
+            <li><span class="bold">Invitados:</span> distinct ID propio del SDK (sin UID de cuenta). Sigue siendo un identificador técnico seudónimo.</li>
+            <li><span class="bold">ID de sesión:</span> identificador de sesión opaco creado por la app.</li>
+        </ul>
+
+        <h2>4. Residencia Mixpanel, transferencias y conservación</h2>
+        <p>El proyecto Mixpanel de UnSolo está configurado para <span class="bold">residencia de datos en la UE</span>. Véase: <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. La residencia en la UE <span class="bold">no</span> significa que todo el tratamiento se limite a la UE: Mixpanel y sus subencargados pueden tratar o transferir datos fuera del EEE según el DPA de Mixpanel y las garantías aplicables. Véase también <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> y <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo conserva la analítica de Mixpanel solo durante el tiempo necesario para las finalidades de analítica indicadas y mientras el servicio o la suscripción de Mixpanel permanezca activos, con sujeción a las reglas de conservación aplicables de la cuenta y del proveedor. El responsable del producto puede solicitar una eliminación anticipada ante una solicitud del interesado. Según el DPA actual de Mixpanel, los datos se eliminan a solicitud de eliminación del cliente o dentro de los 90 días posteriores a la terminación o expiración del acuerdo, salvo que la ley aplicable exija la conservación. La sola retirada de la opción opcional <span class="bold">no</span> borra automáticamente los datos históricos de Mixpanel. Para solicitudes de acceso o eliminación relacionadas con este tratamiento, contacte al responsable del producto con los datos abajo.</p>
+
+        <h2>5. Qué recopila Crashlytics</h2>
+        <p>UnSolo habilita la recopilación y la subida de Crashlytics solo mientras Share usage and diagnostics está <span class="bold">ON</span> y el ciclo de consentimiento lo habilita correctamente. Con la recopilación desactivada, el SDK aún puede crear o retener información de fallos localmente en el dispositivo. En la primera activación, UnSolo está diseñado para eliminar informes previos al consentimiento no enviados antes de habilitar la recopilación, y para no subir esa cola.</p>
+        <p>Cuando está habilitado, Crashlytics puede recibir registros de fallos, stack traces, datos minidump, estado de app/dispositivo e identificadores de instalación del proveedor. UnSolo <span class="bold">no</span> llama a Crashlytics setUserId y <span class="bold">no</span> adjunta atributos de identidad de la cuenta. En producción, los diagnósticos gestionados enviados por la app usan <span class="bold">solo nombres de eventos de diagnóstico fijos</span> (sin objetos de error en bruto ni metadatos de usuario personalizados).</p>
+        <p>Firebase Crashlytics conserva los stack traces de fallos subidos, los datos minidump extraídos y los identificadores asociados durante <span class="bold">90 días</span> antes de comenzar la eliminación de los sistemas en vivo y de copia de seguridad. El tratamiento usa instalaciones globales de Firebase / Google. Véase <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. Retirar la opción opcional detiene la telemetría opcional futura pero <span class="bold">no borra automáticamente</span> los informes ya subidos.</p>
+
+        <h2>6. Qué no se envía a Mixpanel</h2>
+        <p>UnSolo <span class="bold">no</span> envía a Mixpanel: texto de mensajes; ids de chat; direcciones de correo; coordenadas GPS precisas; el Place ID exacto; nombre, bio o URL de avatar; texto libre de denuncias; datos de tarjeta de pago o recibos / ids de transacción; tokens OAuth; tokens push; identificadores publicitarios (GAID/IDFA).</p>
+        <p>Los Place ID exactos y otros datos de perfil pueden seguir almacenados en el producto / backend de UnSolo para matching y mapas — separados de Mixpanel.</p>
+
+        <h2>7. Cómo cambiar o retirar</h2>
+        <p>Cambie o retire la opción en la Aplicación en <span class="bold">Ajustes → Analítica y diagnósticos</span>. Guardar <span class="bold">OFF</span> registra su elección y cierra de inmediato la puerta de telemetría opcional. En Android puede ser necesario cerrar y volver a abrir UnSolo para que se complete la desactivación nativa de Crashlytics. Pueden aparecer los botones <span class="bold">Cerrar ahora</span> (cierra la app) o <span class="bold">Más tarde</span> (cierra el aviso; la opción sigue OFF). Los datos históricos ya retenidos por Mixpanel o Crashlytics <span class="bold">no</span> se borran automáticamente al retirar — contáctenos para solicitudes del interesado.</p>
+
+        <h2>8. Registro local de la elección</h2>
+        <p>UnSolo almacena este registro de elección <span class="bold">solo localmente en su dispositivo</span>. Sirve para recordar y aplicar su elección. Incluye la elección, la versión del aviso, la hora de la decisión, el build de la app y el origen. <span class="bold">No</span> se envía a Mixpanel y <span class="bold">no</span> se sube ni se almacena como campo de analítica de cuenta o perfil. Puede perderse tras desinstalación, borrado de datos de la app, invalidación o reemplazo.</p>
+
+        <h2>9. Contacto y solicitudes del interesado</h2>
+        <p>Para preguntas o solicitudes relacionadas con este tratamiento opcional (acceso o eliminación):</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        Email: <span class="email">unsolo.box@gmail.com</span></p>
+        <p>Véase también nuestra <a href="privacy.html">Política de privacidad</a>.</p>
+        <p><span class="bold">Última actualización: 2026-08-30</span></p>
+    </section>
+
+    <section id="ru">
+        <h1>Аналитика и диагностика (Русский)</h1>
+        <p>Это уведомление объясняет опциональный выбор в приложении <span class="bold">Share usage and diagnostics</span> в UnSolo. Оно охватывает продуктовую аналитику (<span class="bold">Mixpanel</span>) и диагностику сбоев (<span class="bold">Firebase Crashlytics</span>, Google). Оно <span class="bold">не</span> заменяет нашу <a href="privacy.html">Политику конфиденциальности</a> или <a href="terms.html">Условия использования</a>. Принятие Условий и ознакомление с Политикой конфиденциальности и Community Guidelines <span class="bold">отделены</span> от этого опционального выбора.</p>
+
+        <h2>1. Опциональный совместный выбор</h2>
+        <p>UnSolo использует один опциональный переключатель для <span class="bold">Mixpanel</span> и <span class="bold">Firebase Crashlytics</span>. По умолчанию он <span class="bold">OFF</span>. Включение (<span class="bold">ON</span>) активирует оба сервиса вместе. Выключение (<span class="bold">OFF</span>) останавливает будущую опциональную телеметрию использования и диагностики для обоих. Этот выбор отделён от ознакомления с Условиями, Политикой конфиденциальности и Community Guidelines. Он <span class="bold">не</span> отключает безопасность, модерацию, жалобы, аутентификацию и прочую необходимую работу сервиса.</p>
+
+        <h2>2. Что собирает Mixpanel при ON</h2>
+        <p>Когда Share usage and diagnostics включён, UnSolo может отправлять в Mixpanel события продуктовой аналитики по таким категориям:</p>
+        <ul>
+            <li>Экраны и навигация (просмотры экранов и вкладки)</li>
+            <li>Воронка аутентификации (старт, успех, ошибка с классифицированными исходами)</li>
+            <li>Привязка аккаунта и шаги онбординга</li>
+            <li>Планы и discovery (например, счётчики активностей, сезон/даты, режим локации, воронка колоды/матчей) — без точного Place ID</li>
+            <li>Только метаданные чата (например, чат открыт / сообщение отправлено) — без текста сообщений</li>
+            <li>Жалобы: только категория и контекст (свободный текст идёт в backend приложения, не в Mixpanel)</li>
+            <li>Воронка чаевых / монетизации, включая SKU продукта tip, уровень и магазин (iOS/Android)</li>
+            <li>Opt-in предложений, шаринг приложения и запросы оценки в магазине</li>
+            <li>На Android — поля кампании / referrer при наличии (например, source, medium, campaign, content и связанные first-touch свойства)</li>
+            <li>Общий контекст приложения (например, версия, build, платформа, язык UI, locale устройства, тип auth, флаг гостя, id сессии)</li>
+            <li>Приблизительная IP-геолокация: SDK Mixpanel React Native может отправлять IP клиента, чтобы Mixpanel определил приблизительные <span class="bold">город, регион и страну</span>. Это <span class="bold">не</span> точный и не realtime GPS</li>
+        </ul>
+
+        <h2>3. Идентификаторы (псевдонимные — не анонимные)</h2>
+        <p>Эта опциональная аналитика <span class="bold">псевдонимная, не анонимная</span>.</p>
+        <ul>
+            <li><span class="bold">Связанные аккаунты:</span> distinct ID Mixpanel — ваш ID пользователя аутентификации Supabase (псевдонимный идентификатор аккаунта, который можно связать с аккаунтом UnSolo).</li>
+            <li><span class="bold">Гости:</span> собственный distinct ID SDK (без UID аккаунта). Это по-прежнему псевдонимный технический идентификатор.</li>
+            <li><span class="bold">ID сессии:</span> непрозрачный идентификатор сессии, создаваемый приложением.</li>
+        </ul>
+
+        <h2>4. Резидентность Mixpanel, передачи и хранение</h2>
+        <p>Проект Mixpanel UnSolo настроен на <span class="bold">резидентность данных в ЕС</span>. См.: <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. Резидентность в ЕС <span class="bold">не</span> означает, что вся обработка ограничена ЕС: Mixpanel и субпроцессоры могут обрабатывать или передавать данные за пределы ЕЭЗ по DPA Mixpanel и применимым гарантиям. См. также <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> и <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo хранит аналитику Mixpanel только столько, сколько нужно для указанных целей аналитики и пока сервис или подписка Mixpanel остаются активными, с учётом применимых правил хранения аккаунта и поставщика. Владелец продукта может запросить более раннее удаление по запросу субъекта данных. Согласно текущему DPA Mixpanel, данные удаляются по запросу на удаление от клиента либо в течение 90 дней после прекращения или истечения соглашения, если применимое право не требует хранения. Один лишь отзыв опционального выбора <span class="bold">не</span> удаляет автоматически исторические данные Mixpanel. Для запросов на доступ или удаление, связанных с этой обработкой, свяжитесь с владельцем продукта по контактам ниже.</p>
+
+        <h2>5. Что собирает Crashlytics</h2>
+        <p>UnSolo включает сбор и загрузку Crashlytics только пока Share usage and diagnostics <span class="bold">ON</span> и жизненный цикл согласия успешно это включает. Когда сбор выключен, SDK всё ещё может создавать или хранить информацию о сбоях локально на устройстве. При первом включении UnSolo рассчитан на удаление неотправленных pre-consent отчётов до включения сбора и на то, чтобы не загружать эту очередь.</p>
+        <p>При включении Crashlytics может получать логи сбоев, стеки, minidump, состояние приложения/устройства и идентификаторы установки поставщика. UnSolo <span class="bold">не</span> вызывает Crashlytics setUserId и <span class="bold">не</span> добавляет атрибуты идентичности аккаунта. В production обработанная диагностика от приложения использует <span class="bold">только фиксированные имена диагностических событий</span> (без сырых объектов ошибок и пользовательских метаданных).</p>
+        <p>Firebase Crashlytics хранит загруженные стеки сбоев, извлечённые minidump-данные и связанные идентификаторы <span class="bold">90 дней</span>, прежде чем начать удаление из live- и backup-систем. Обработка идёт через глобальную инфраструктуру Firebase / Google. См. <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. Отзыв опционального выбора останавливает будущую опциональную телеметрию, но <span class="bold">не удаляет автоматически</span> уже загруженные отчёты.</p>
+
+        <h2>6. Что не отправляется в Mixpanel</h2>
+        <p>UnSolo <span class="bold">не</span> отправляет в Mixpanel: текст сообщений; id чатов; адреса e-mail; точные GPS-координаты; точный Place ID; имя, био или URL аватара; свободный текст жалоб; данные платёжной карты или чеки / id транзакций; OAuth-токены; push-токены; рекламные идентификаторы (GAID/IDFA).</p>
+        <p>Точные Place ID и другие данные профиля могут по-прежнему храниться в продукте / backend UnSolo для матчинга и карт — отдельно от Mixpanel.</p>
+
+        <h2>7. Как изменить или отозвать</h2>
+        <p>Измените или отзовите выбор в Приложении в <span class="bold">Настройки → Аналитика и диагностика</span>. Сохранение <span class="bold">OFF</span> фиксирует выбор и сразу закрывает шлюз опциональной телеметрии. На Android может потребоваться закрыть и снова открыть UnSolo, чтобы нативное отключение Crashlytics завершилось. Могут появиться кнопки <span class="bold">Закрыть сейчас</span> (закрывает приложение) или <span class="bold">Позже</span> (закрывает подсказку; выбор остаётся OFF). Исторические данные у Mixpanel или Crashlytics <span class="bold">не</span> удаляются автоматически при отзыве — свяжитесь с нами для запросов субъекта данных.</p>
+
+        <h2>8. Локальная запись выбора</h2>
+        <p>UnSolo хранит эту запись выбора <span class="bold">только локально на устройстве</span>. Она нужна, чтобы запомнить и применить ваш выбор. Она включает выбор, версию уведомления, время решения, build приложения и источник. Она <span class="bold">не</span> отправляется в Mixpanel и <span class="bold">не</span> загружается и не хранится как поле аналитики аккаунта или профиля. Она может быть потеряна после удаления приложения, очистки данных, инвалидации или замены.</p>
+
+        <h2>9. Контакты и запросы субъекта данных</h2>
+        <p>По вопросам или запросам, связанным с этой опциональной обработкой (доступ или удаление):</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        Email: <span class="email">unsolo.box@gmail.com</span></p>
+        <p>См. также нашу <a href="privacy.html">Политику конфиденциальности</a>.</p>
+        <p><span class="bold">Последнее обновление: 2026-08-30</span></p>
+    </section>
+
+    <section id="uk">
+        <h1>Аналітика та діагностика (Українська)</h1>
+        <p>Це повідомлення пояснює опціональний вибір у додатку <span class="bold">Share usage and diagnostics</span> в UnSolo. Воно охоплює продуктову аналітику (<span class="bold">Mixpanel</span>) і діагностику збоїв (<span class="bold">Firebase Crashlytics</span>, Google). Воно <span class="bold">не</span> замінює нашу <a href="privacy.html">Політику конфіденційності</a> чи <a href="terms.html">Умови використання</a>. Прийняття Умов і ознайомлення з Політикою конфіденційності та Community Guidelines <span class="bold">відокремлені</span> від цього опціонального вибору.</p>
+
+        <h2>1. Опціональний спільний вибір</h2>
+        <p>UnSolo використовує один опціональний перемикач для <span class="bold">Mixpanel</span> і <span class="bold">Firebase Crashlytics</span>. За замовчуванням він <span class="bold">OFF</span>. Увімкнення (<span class="bold">ON</span>) активує обидва сервіси разом. Вимкнення (<span class="bold">OFF</span>) зупиняє майбутню опціональну телеметрію використання та діагностики для обох. Цей вибір відокремлений від ознайомлення з Умовами, Політикою конфіденційності та Community Guidelines. Він <span class="bold">не</span> вимикає безпеку, модерацію, скарги, автентифікацію та іншу необхідну роботу сервісу.</p>
+
+        <h2>2. Що збирає Mixpanel, коли ON</h2>
+        <p>Коли Share usage and diagnostics увімкнено, UnSolo може надсилати до Mixpanel події продуктової аналітики за такими категоріями:</p>
+        <ul>
+            <li>Екрани та навігація (перегляди екранів і вкладки)</li>
+            <li>Воронка автентифікації (старт, успіх, помилка з класифікованими результатами)</li>
+            <li>Прив’язка акаунта та кроки онбордингу</li>
+            <li>Плани та discovery (наприклад, лічильники активностей, сезон/дати, режим локації, воронка колоди/матчів) — без точного Place ID</li>
+            <li>Лише метадані чату (наприклад, чат відкрито / повідомлення надіслано) — без тексту повідомлень</li>
+            <li>Скарги: лише категорія та контекст (вільний текст іде в backend додатка, не в Mixpanel)</li>
+            <li>Воронка чайових / монетизації, включно зі SKU продукту tip, рівнем і магазином (iOS/Android)</li>
+            <li>Opt-in пропозицій, поширення додатка та запити оцінки в магазині</li>
+            <li>На Android — поля кампанії / referrer за наявності (наприклад, source, medium, campaign, content і пов’язані first-touch властивості)</li>
+            <li>Спільний контекст додатка (наприклад, версія, build, платформа, мова UI, locale пристрою, тип auth, прапорець гостя, id сесії)</li>
+            <li>Приблизна IP-геолокація: SDK Mixpanel React Native може надсилати IP клієнта, щоб Mixpanel визначив приблизні <span class="bold">місто, регіон і країну</span>. Це <span class="bold">не</span> точний і не realtime GPS</li>
+        </ul>
+
+        <h2>3. Ідентифікатори (псевдонімні — не анонімні)</h2>
+        <p>Ця опціональна аналітика є <span class="bold">псевдонімною, не анонімною</span>.</p>
+        <ul>
+            <li><span class="bold">Пов’язані акаунти:</span> distinct ID Mixpanel — ваш ID користувача автентифікації Supabase (псевдонімний ідентифікатор акаунта, який можна пов’язати з акаунтом UnSolo).</li>
+            <li><span class="bold">Гості:</span> власний distinct ID SDK (без UID акаунта). Це все одно псевдонімний технічний ідентифікатор.</li>
+            <li><span class="bold">ID сесії:</span> непрозорий ідентифікатор сесії, створений додатком.</li>
+        </ul>
+
+        <h2>4. Резидентність Mixpanel, передачі та зберігання</h2>
+        <p>Проєкт Mixpanel UnSolo налаштований на <span class="bold">резидентність даних у ЄС</span>. Див.: <a href="https://mixpanel.com/legal/eu-data-residency/">https://mixpanel.com/legal/eu-data-residency/</a>. Резидентність у ЄС <span class="bold">не</span> означає, що вся обробка обмежена ЄС: Mixpanel і субпроцесори можуть обробляти або передавати дані за межі ЄЕЗ згідно з DPA Mixpanel і застосовними гарантіями. Див. також <a href="https://mixpanel.com/legal/dpa/">https://mixpanel.com/legal/dpa/</a> та <a href="https://mixpanel.com/legal/privacy-policy/">https://mixpanel.com/legal/privacy-policy/</a>.</p>
+        <p>UnSolo зберігає аналітику Mixpanel лише стільки, скільки потрібно для зазначених цілей аналітики і поки сервіс чи підписка Mixpanel залишаються активними, з урахуванням застосовних правил зберігання акаунта та постачальника. Власник продукту може запросити раніше видалення за запитом суб’єкта даних. Згідно з поточним DPA Mixpanel, дані видаляються за запитом на видалення від клієнта або протягом 90 днів після припинення чи закінчення угоди, якщо застосовне право не вимагає зберігання. Саме лише відкликання опціонального вибору <span class="bold">не</span> видаляє автоматично історичні дані Mixpanel. Для запитів на доступ чи видалення, пов’язаних із цією обробкою, зверніться до власника продукту за контактами нижче.</p>
+
+        <h2>5. Що збирає Crashlytics</h2>
+        <p>UnSolo вмикає збір і завантаження Crashlytics лише поки Share usage and diagnostics <span class="bold">ON</span> і життєвий цикл згоди успішно це вмикає. Коли збір вимкнено, SDK все одно може створювати або зберігати інформацію про збої локально на пристрої. При першому увімкненні UnSolo розрахований на видалення ненадісланих pre-consent звітів перед увімкненням збору і на те, щоб не завантажувати цю чергу.</p>
+        <p>Коли увімкнено, Crashlytics може отримувати логи збоїв, стеки, minidump, стан додатка/пристрою та ідентифікатори встановлення постачальника. UnSolo <span class="bold">не</span> викликає Crashlytics setUserId і <span class="bold">не</span> додає атрибути ідентичності акаунта. У production оброблена діагностика від додатка використовує <span class="bold">лише фіксовані імена діагностичних подій</span> (без сирих об’єктів помилок і користувацьких метаданих).</p>
+        <p>Firebase Crashlytics зберігає завантажені стеки збоїв, витягнуті minidump-дані та пов’язані ідентифікатори <span class="bold">90 днів</span>, перш ніж почати видалення з live- і backup-систем. Обробка йде через глобальну інфраструктуру Firebase / Google. Див. <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a>. Відкликання опціонального вибору зупиняє майбутню опціональну телеметрію, але <span class="bold">не видаляє автоматично</span> вже завантажені звіти.</p>
+
+        <h2>6. Що не надсилається до Mixpanel</h2>
+        <p>UnSolo <span class="bold">не</span> надсилає до Mixpanel: текст повідомлень; id чатів; адреси e-mail; точні GPS-координати; точний Place ID; ім’я, біо чи URL аватара; вільний текст скарг; дані платіжної картки чи чеки / id транзакцій; OAuth-токени; push-токени; рекламні ідентифікатори (GAID/IDFA).</p>
+        <p>Точні Place ID та інші дані профілю можуть надалі зберігатися в продукті / backend UnSolo для матчингу та карт — окремо від Mixpanel.</p>
+
+        <h2>7. Як змінити або відкликати</h2>
+        <p>Змініть або відкличте вибір у Додатку в <span class="bold">Налаштування → Аналітика та діагностика</span>. Збереження <span class="bold">OFF</span> фіксує вибір і одразу закриває шлюз опціональної телеметрії. На Android може знадобитися закрити й знову відкрити UnSolo, щоб нативне вимкнення Crashlytics завершилося. Можуть з’явитися кнопки <span class="bold">Закрити зараз</span> (закриває додаток) або <span class="bold">Пізніше</span> (закриває підказку; вибір лишається OFF). Історичні дані в Mixpanel чи Crashlytics <span class="bold">не</span> видаляються автоматично при відкликанні — зверніться до нас для запитів суб’єкта даних.</p>
+
+        <h2>8. Локальний запис вибору</h2>
+        <p>UnSolo зберігає цей запис вибору <span class="bold">лише локально на пристрої</span>. Він потрібен, щоб запам’ятати й застосувати ваш вибір. Він включає вибір, версію повідомлення, час рішення, build додатка та джерело. Він <span class="bold">не</span> надсилається до Mixpanel і <span class="bold">не</span> завантажується та не зберігається як поле аналітики акаунта чи профілю. Він може бути втрачений після видалення додатка, очищення даних, інвалідації або заміни.</p>
+
+        <h2>9. Контакти та запити суб’єкта даних</h2>
+        <p>З питань чи запитів щодо цієї опціональної обробки (доступ або видалення):</p>
+        <p>Daria Fokina<br>
+        trading as Alpine Art Studio<br>
+        Veilchenweg 16<br>
+        88046 Friedrichshafen<br>
+        Germany<br>
+        Email: <span class="email">unsolo.box@gmail.com</span></p>
+        <p>Див. також нашу <a href="privacy.html">Політику конфіденційності</a>.</p>
+        <p><span class="bold">Останнє оновлення: 2026-08-30</span></p>
+    </section>
+
+    <footer>
+        &copy; 2026 Daria Fokina. UnSolo.
+    </footer>
+
+    <script>
+    (function () {
+        function navOffset() {
+            var nav = document.querySelector('nav');
+            return (nav ? nav.getBoundingClientRect().height : 96) + 12;
+        }
+        function scrollToHash() {
+            var id = location.hash.slice(1);
+            if (!id) return;
+            var el = document.getElementById(id);
+            if (!el) return;
+            var top = el.getBoundingClientRect().top + window.scrollY - navOffset();
+            window.scrollTo(0, top);
+        }
+        function scheduleScroll() {
+            scrollToHash();
+            requestAnimationFrame(scrollToHash);
+            setTimeout(scrollToHash, 100);
+        }
+        window.addEventListener('DOMContentLoaded', scheduleScroll);
+        window.addEventListener('load', scheduleScroll);
+        window.addEventListener('hashchange', scrollToHash);
+    })();
+    </script>
+
+</body>
+</html>
