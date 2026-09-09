@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1A1D26">
+  <meta name="description" content="See public travel and activity plans on the UnSolo map.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; connect-src 'self' https://zgzmixewdrzhwduvhkau.supabase.co https://maps.googleapis.com https://maps.gstatic.com; img-src 'self' data: https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://maps.googleapis.com; font-src 'self'; form-action 'self'">
+  <title>UnSolo Plan Map</title>
+  <link rel="icon" href="../download/assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="plans.css">
+</head>
+<body>
+  <a class="skip-link" href="#map-shell">Skip to the map</a>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../download/" aria-label="UnSolo home">
+        <img
+          src="../download/assets/logo.png"
+          srcset="../download/assets/logo.png 1x, ../download/assets/logo@2x.png 2x"
+          width="350"
+          height="311"
+          alt="UnSolo"
+        >
+      </a>
+
+      <div class="headline-block">
+        <p class="eyebrow">UnSolo Plan Map</p>
+        <h1>Going somewhere?<br><span>See who else has plans.</span></h1>
+      </div>
+
+      <button class="add-plan-button" type="button" aria-describedby="add-plan-note">
+        <span aria-hidden="true">+</span> Add your plan
+      </button>
+      <span class="visually-hidden" id="add-plan-note">Plan sharing will be available soon.</span>
+    </header>
+
+    <main id="map-shell" class="map-shell" aria-labelledby="map-title">
+      <h2 class="visually-hidden" id="map-title">Public Plan Map</h2>
+
+      <section class="map-card" aria-describedby="feed-status">
+        <div class="map-canvas" id="map-canvas" hidden></div>
+
+        <div class="consent-panel" id="consent-panel">
+          <div class="consent-art" aria-hidden="true">
+            <span class="pin pin-one"></span>
+            <span class="pin pin-two"></span>
+            <span class="route"></span>
+          </div>
+          <div class="consent-copy">
+            <p class="map-kicker">The map waits for you.</p>
+            <h2>Load Google Maps?</h2>
+            <p>Google will receive technical data, such as your IP address, after you choose to load the map.</p>
+            <button class="consent-button" id="load-map" type="button">Load Google Maps</button>
+            <a class="privacy-link" href="../legal/privacy.html">Plan Map Privacy Notice</a>
+          </div>
+        </div>
+
+        <div class="map-toolbar" id="map-toolbar" hidden>
+          <p id="map-count" aria-live="polite"></p>
+          <button id="turn-off-map" type="button">Turn off Google Maps</button>
+        </div>
+
+        <div class="state-card" id="map-error" role="alert" hidden>
+          <strong>We could not load the map.</strong>
+          <span>Try again in a moment.</span>
+          <button id="retry-map" type="button">Try again</button>
+        </div>
+      </section>
+
+      <section class="feed-panel" aria-live="polite" aria-atomic="true">
+        <div class="feed-status" id="feed-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Loading plans…</span>
+        </div>
+        <p class="feed-note" id="feed-note" hidden></p>
+      </section>
+    </main>
+
+    <footer>
+      <a href="../download/">UnSolo</a>
+      <span aria-hidden="true">·</span>
+      <a href="../legal/privacy.html">Privacy</a>
+    </footer>
+  </div>
+
+  <script src="maps-key.js"></script>
+  <script type="module" src="plans.mjs"></script>
+</body>
+</html>
